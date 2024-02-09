@@ -5,7 +5,7 @@ import { IArgs } from '../../Types'
     description: 'Bans/unban users',
     category: 'boss',
     cooldown: 5,
-    usage: 'ban --action=[ban/unban] [tag/quote users]',
+    usage: 'ban --action=[ban/unban] [tag/quote users]', 'fuck you --idk=[ban/unban] [tag/quote users]'
     exp: 15
 })
 export default class extends BaseCommand {
@@ -36,7 +36,7 @@ export default class extends BaseCommand {
                 (!info.banned && action.toLowerCase() === 'unban')
             ) {
                 skippedFlag = true
-                Text += `*@${user.split('@')[0]}* (Skipped as this user is ${
+                Text += `*@${user.split('@')[0]}* (Skipped as this bitch is ${
                     this.client.config.mods.includes(user)
                         ? 'a moderator'
                         : action.toLowerCase() === 'ban'
