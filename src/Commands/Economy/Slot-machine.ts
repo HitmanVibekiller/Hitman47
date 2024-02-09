@@ -1,7 +1,8 @@
 import { SlotMachine, SlotSymbol } from 'slot-machine'
 import { BaseCommand, Command, Message } from '../../Structures'
 
-@Command('slot', {
+@Command('slot', {if (amount > 1000)
+            return void M.reply(`The maximum amount for betting is 1000`)
     category: 'economy',
     description: 'Bets the given amount of gold in a slot machine',
     usage: 'slot <amount>',
