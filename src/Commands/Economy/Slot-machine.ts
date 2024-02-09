@@ -5,7 +5,7 @@ import { BaseCommand, Command, Message } from '../../Structures'
     category: 'economy',
     description: 'Bets the given amount of gold in a slot machine',
     usage: 'slot <amount>',
-    cooldown: 35,
+    cooldown: 10,
     exp: 10,
     aliases: ['bet']
 })
@@ -14,7 +14,7 @@ export default class command extends BaseCommand {
         if (M.numbers.length < 1) return void M.reply(`amount?`)
         const amount = M.numbers[0];
         const { wallet } = await this.client.DB.getUser(M.sender.jid)
-        if (amount > wallet) return void M.reply(`check ur wallet`)
+        if (amount > wallet) return void M.reply(`check ur wallet broke bitch 😂💔`)
         const machine = new SlotMachine(3, this.symbols)
         const results = machine.play();
         const lines = results.lines.filter((line) => !line.diagonal);
@@ -24,7 +24,7 @@ export default class command extends BaseCommand {
 
         let text = '🎰 *SLOT MACHINE* 🎰\n\n';
         text += results.visualize();
-        text += points <= 0 ? `📉 You lost ${amount} gold` : `📈 You won ${resultAmount} gold`;
+        text += points <= 0 ? `📈 You lost ${amount} gold` : `📉 You won ${resultAmount} gold`;
 
         return void (await this.client.sendMessage(M.from, { text }, { quoted: M.message }))
     };
@@ -41,7 +41,7 @@ export default class command extends BaseCommand {
             weight: 100
         }),
         new SlotSymbol('b', {
-            display: '💰',
+            display: '💀',
             points: 5,
             weight: 40
         })
