@@ -5,7 +5,7 @@ import { IArgs } from '../../Types'
     description: 'enable/disable private message chat bot feature.',
     category: 'boss',
     dm: true,
-    usage: 'chatbot true',
+    usage: 'chatbot true', 'chatbot --action=[enable/disable]'
     exp: 20,
     cooldown: 5
 })
